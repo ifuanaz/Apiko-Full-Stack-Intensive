@@ -7,8 +7,8 @@ const React = {
         Array.isArray(node) ? element.append(...node) : element.innerHTML = node;
 
         // set attrs for element like style and textContent
-        (options && options.style) ? element.style.backgroundColor = options.style.backgroundColor : null;
-        (options && options.textContent) ? element.innerHTML = options.textContent : null;
+        if (options && options.style) element.style.backgroundColor = options.style.backgroundColor;
+        else if (options && options.textContent) element.innerHTML = options.textContent;
 
         return element;
     },
