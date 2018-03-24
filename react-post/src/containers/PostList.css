@@ -1,0 +1,10 @@
+.post-container {
+    padding: 30px;
+}
+
+.title {
+    text-align: center;
+    letter-spacing: 10px;
+    color: #666;
+    font-weight: normal;
+}
