@@ -3,14 +3,25 @@ import PropTypes from 'prop-types';
 
 import './PostListItem.css';
 
-const PostListItem = ({ post }) => (
-    <div className="post">
-        <h2 className="post-title">
-            {post.id} {post.title}
-        </h2>
-        <p>{post.body}</p>
-    </div>
-);
+class PostListItem extends React.Component {
+    shouldComponentUpdate(nextProps, nextState) {
+        return (
+            this.props.title !== nextProps.post.title ||
+            this.props.body !== nextProps.post.body
+        );
+    }
+
+    render() {
+        return(
+            <div className="post">
+                <h2 className="post-title">
+                    {this.props.post.id} {this.props.post.title}
+                </h2>
+                <p>{this.props.post.body}</p>
+            </div>
+        )
+    }
+}
 
 PostListItem.propTypes = {
     post: PropTypes.object.isRequired
